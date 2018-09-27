@@ -132,6 +132,14 @@ _bitcoin_block_fields = [
 
 _bitcoin_opcode_overrides = []
 
+KomodoPreset = ParamsPreset(
+        name='Komodo',
+        tx_fields=[('nVersion', b'<i', 4, 1),
+            ('vin', 'inputs', None, None),
+            ('vout', 'outputs', None, None),
+            ('nLockTime', b'<I', 4, 0)]
+)
+
 BitcoinPreset = ParamsPreset(
         name='Bitcoin',
         tx_fields=[('nVersion', b'<i', 4, 1),
@@ -172,7 +180,8 @@ PeercoinPreset = ParamsPreset(
 )
 
 presets_list = [
-        BitcoinPreset,
+        KomodoPreset,
+	BitcoinPreset,
         ClamsPreset,
         FreicoinPreset,
         PeercoinPreset
