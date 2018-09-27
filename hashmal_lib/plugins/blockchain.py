@@ -67,7 +67,12 @@ def header_from_insight_block(d):
 insight_explorer = type('insight_explorer', (BlockExplorer,), dict(name='insight',domain='https://insight.bitpay.com',
                 routes = {'raw_tx':'/api/rawtx/', 'raw_header':'/api/block/'},
                 parsers = {'raw_tx':lambda d: d.get('rawtx'), 'raw_header': header_from_insight_block}))
-known_explorers = {'Bitcoin': [insight_explorer()]}
+
+komodo_explorer = type('komodo_explorer', (BlockExplorer,), dict(name='insight',domain='https://kmdexplorer.io',
+                routes = {'raw_tx':'/insight-api-komodo/rawtx/', 'raw_header':'/insight-api-komodo/block/'},
+                parsers = {'raw_tx':lambda d: d.get('rawtx'), 'raw_header': header_from_insight_block}))
+
+known_explorers = {'Bitcoin': [insight_explorer()], 'Komodo': [komodo_explorer()]}
 
 class BlockchainDownloader(Downloader):
     finished = pyqtSignal(str, str, str, str, name='finished')
