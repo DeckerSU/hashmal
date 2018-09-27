@@ -1,0 +1,55 @@
+Python 2.x
+----------
+
+pip2 install --upgrade cryptography --user
+pip2 install --upgrade pyopenssl
+pip2 install --upgrade pip
+pip2 install -r requirements.txt
+pip2 install --upgrade requests
+
+Run
+---
+
+python2 hashmal
+
+Don't forget to change default explorer for Komodo:
+
+Tools -> Data -> Blockchain -> Block explorer [Tab] and choose Komodo as Chain.
+
+
+NB! Seems codebase is incompatible (!) with Python 3.x, so best way is to use Python 2.x.
+
+https://github.com/mazaclub/hashmal/issues/3
+
+Python 3.x
+----------
+
+sudo pip3 install --upgrade pip
+sudo pip3 install bitcoin
+sudo pip3 install python-bitcoinlib (https://pypi.org/project/python-bitcoinlib/)
+sudo pip3 install pyparsing
+sudo pip3 install --upgrade requests
+
+https://stackoverflow.com/questions/7942887/how-to-configure-pyqt4-for-python-3-in-ubuntu
+
+sudo apt-get install python3-pyqt4
+
+Upgrading pip
+-------------
+
+https://github.com/pypa/pip/issues/3776
+
+same issue on 'Ubuntu 16.04.1 LTS'. but following commands helps:
+
+apt-get remove python3-pip python-pip
+pip2 install -U pip
+pip3 install -U pip
+
+now it's ok:
+
+# pip install --upgrade pip
+Requirement already up-to-date: pip in /usr/local/lib/python2.7/dist-packages
+# python2 -c "import pip; print(pip.__version__)"
+9.0.1
+# python3 -c "import pip; print(pip.__version__)"
+9.0.1
